@@ -82,6 +82,7 @@ function calcStrength() {
     }
 }
 
+//to copy on clipboard
 async function copyContent() {
     try {
         await navigator.clipboard.writeText(passwordDisplay.value);
@@ -99,6 +100,7 @@ async function copyContent() {
 
 }
 
+// to shuffle the generated password
 function shufflePassword(array) {
     //Fisher Yates Method
     for (let i = array.length - 1; i > 0; i--) {
@@ -193,12 +195,14 @@ generateBtn.addEventListener('click', () => {
         funcArr.push(generateSymbol);
 
     //compulsory addition
+    // added the needed checkbox element
     for(let i=0; i<funcArr.length; i++) {
         password += funcArr[i]();
     }
     console.log("COmpulsory adddition done");
 
     //remaining adddition
+    //passwordLength still greater, so generate random for more
     for(let i=0; i<passwordLength-funcArr.length; i++) {
         let randIndex = getRndInteger(0 , funcArr.length);
         console.log("randIndex" + randIndex);
